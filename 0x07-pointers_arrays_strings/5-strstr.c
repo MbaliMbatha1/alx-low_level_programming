@@ -1,18 +1,34 @@
-#include "main.h"
-#include <stdio.h>
-
 /**
- * main - check the code
+ * _strstr - returns rest of a string beginning from 1st instance of a substr
+ * @haystack: string to scan
+ * @needle: string to match
  *
- * Return: Always 0.
+ * Return: see function description above, NULL is substr not found
  */
-int main(void)
+char *_strstr(char *haystack, char *needle)
 {
-    char *s = "hello, world";
-    char *f = "world";
-    char *t;
+	int i, j, c, nl = 0;
 
-    t = _strstr(s, f);
-    printf("%s\n", t);
-    return (0);
+	while (*(needle + nl))
+		nl++;
+
+	for (i = 0; *(haystack + i); i++)
+	{
+		c = i;
+		for (j = 0; *(needle + j); j++)
+		{
+			if (*(haystack + c) == *(needle + j))
+			{
+				if (j == nl - 1)
+					return (haystack + c - j);
+				c++;
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	return ('\0');
 }
