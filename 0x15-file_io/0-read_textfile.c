@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * read_textfile - DSF ASDFASDHFA DF
- * @filename: SDF ASDFASDF
- * @letters: nFASDFASDFASDF SDFGASDFA SDF.
+ * read_textfile - rid & print
+ * @filename: mfdam asdfla aldf 
+ * @latter: ndasfa dajsdf asd;la 
  *
- * Return: ASDF ASDF ASDF ADGAERG Q 0.
+ * Return: zero!!!!
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+ssize_t read_textfile(const char *filename, size_t latter)
 {
 	int kd;
 	ssize_t nrd, nbr;
-	char *buf;
+	char *kim;
 
 	if (!filename)
 		return (0);
@@ -21,16 +21,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (kd == -1)
 		return (0);
 
-	lui = malloc(sizeof(char) * (letters));
-	if (!lui)
+	kim = malloc(sizeof(char) * (latter));
+	if (!kim)
 		return (0);
 
-	nrd = read(kd, lui, letters);
-	znr = write(STDOUT_FILENO, lui, nrd);
+	nrd = read(kd, kim, latter);
+	nbr = write(STDOUT_FILENO, kim, nrd);
 
 	close(kd);
 
-	free(lui);
+	free(kim);
 
-	return (nrd);
+	return (nbr);
 }
