@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- * error_file - checks if files can be opened.
- * @file_from: file_from.
- * @file_to: file_to.
- * @argv: arguments vector.
- * Return: no return.
+ * error_file -check if the file has been touched.
+ * @file_from: this is a function
+ * @file_to: this is als a function.
+ * @argv: arg 
+ * Return: nothing.
  */
 void error_file(int file_from, int file_to, char *argv[])
 {
@@ -23,16 +23,16 @@ void error_file(int file_from, int file_to, char *argv[])
 }
 
 /**
- * main - check the code for Holberton School students.
- * @argc: number of arguments.
- * @argv: arguments vector.
- * Return: Always 0.
+ * main - check fo the students
+ * @argc: n0. of args
+ * @argv: arg v.
+ * Return: nnada
  */
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, err_close;
-	size_t nchars, yty;
-	char bug[1024];
+	ssize_t numch, ufs;
+	char mvp[1024];
 
 	if (argc != 3)
 	{
@@ -44,28 +44,28 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
-	nchars = 1024;
-	while (nchars == 1024)
+	numch = 1024;
+	while (numch == 1024)
 	{
-		nchars = read(file_from, bug, 1024);
-		if (nchars == -1)
+		numch = read(file_from, mvp, 1024);
+		if (numch == -1)
 			error_file(-1, 0, argv);
-		yty = write(file_to, bug, nchars);
-		if (yty == -1)
+		ufs = write(file_to, mvp, numch);
+		if (ufs == -1)
 			error_file(0, -1, argv);
 	}
 
 	err_close = close(file_from);
 	if (err_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close xd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 
 	err_close = close(file_to);
 	if (err_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close xd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	return (0);
